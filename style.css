@@ -1,147 +1,47 @@
-/* إعادة ضبط الأنماط الأساسية */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* تنسيق بسيط جداً لتصغير الصور وتنظيم الصفحة */
 body {
-    background: linear-gradient(135deg, #e0e7ff 0%, #f1f5f9 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: sans-serif;
     padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
 }
 
-/* بطاقة التطبيق الرئيسية */
-.app-card {
-    background: #ffffff;
-    width: 100%;
-    max-width: 450px; /* تحديد عرض البطاقة لتكون صغيرة */
-    border-radius: 24px;
-    padding: 28px 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-/* الهيدر */
-.header {
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.badge {
-    background: #e0e7ff;
-    color: #4f46e5;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.header h1 {
-    color: #1e293b;
-    font-size: 1.8rem;
-    margin-top: 10px;
-}
-
-.header p {
-    color: #64748b;
-    font-size: 0.88rem;
-    margin-top: 4px;
-    margin-bottom: 18px;
-}
-
-/* زر التحميل الأنيق */
+/* زر التحميل */
 .btn-download {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
-    color: #ffffff;
+    display: inline-block;
+    background-color: #0066cc;
+    color: white;
+    padding: 12px 20px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 14px 28px;
-    border-radius: 14px;
-    width: 100%;
-    box-shadow: 0 8px 18px rgba(79, 70, 229, 0.3);
-    transition: all 0.2s ease;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 15px 0;
 }
 
-.btn-download:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 22px rgba(79, 70, 229, 0.4);
-}
-
-/* قسم معرض الصور المصغرة */
-.gallery-section h2 {
-    font-size: 1rem;
-    color: #334155;
-    margin-bottom: 14px;
+/* تحديد حجم الصور لتصبح صغيرة ومصغرة */
+.gallery-container {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    gap: 15px;
+    margin-top: 15px;
 }
 
-.gallery-section h2 i {
-    color: #4f46e5;
-}
-
-/* شبكة الصور المصغرة (3 في الصف) */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.card-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-}
-
-/* حاوية الصورة المصغرة */
-.img-box {
-    width: 100%;
-    height: 160px; /* تحديد ارتفاع مصغر وموحد للصور */
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid #e2e8f0;
-    background: #f8fafc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
-}
-
-.img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* لضمان ضبط مقاسات الصور دون تمدد أو تشويه */
-    transition: transform 0.3s ease;
-}
-
-.img-box:hover img {
-    transform: scale(1.08);
-}
-
-.card-item span {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #475569;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-footer {
+.photo-item {
+    flex: 1;
     text-align: center;
-    margin-top: 24px;
-    padding-top: 16px;
-    border-top: 1px solid #f1f5f9;
-    font-size: 0.75rem;
-    color: #94a3b8;
+}
+
+.photo-item img {
+    width: 100%;
+    max-width: 140px; /* حجم مصغر ومحدد للصور */
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.photo-item p {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    color: #444;
 }
