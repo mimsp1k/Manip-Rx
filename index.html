@@ -4,141 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manip-Rx - Application Mobile</title>
-    <!-- CSS & Styling -->
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --text-muted: #64748b;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 20px 10px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Hero Header Card */
-        .hero-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-        }
-
-        .hero-card h1 {
-            font-size: 2rem;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-
-        .hero-card p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
-
-        /* Download Button */
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: var(--primary-color);
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: 600;
-            padding: 16px 36px;
-            border-radius: 12px;
-            text-decoration: none;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
-            transition: all 0.3s ease;
-        }
-
-        .btn-download:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
-        }
-
-        /* Screenshots Section */
-        .screenshots-section {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .screenshots-section h2 {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--text-color);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            justify-items: center;
-        }
-
-        .screenshot-card {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .screenshot-card:hover {
-            transform: scale(1.03);
-        }
-
-        .screenshot-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-    </style>
+    <!-- ربط ملف الـ CSS الخارجي -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <!-- Hero Section -->
-        <div class="hero-card">
+        
+        <!-- القسم الأول: زر التحميل -->
+        <div class="section-card">
             <h1>Plateforme Manip-Rx</h1>
             <p>Pour télécharger l'application, cliquez sur le bouton ci-dessous :</p>
-            
-            <!-- Download Action Button -->
             <a href="ManipRx.apk" class="btn-download" download>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
                     <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -147,25 +25,34 @@
             </a>
         </div>
 
-        <!-- Screenshots Section -->
-        <div class="screenshots-section">
-            <h2>Aperçu de l'application</h2>
-            <div class="grid">
-                <div class="screenshot-card">
-                    <img src="img1.png" alt="Aperçu Manip-Rx 1">
-                </div>
-                <div class="screenshot-card">
-                    <img src="img2.png" alt="Aperçu Manip-Rx 2">
-                </div>
-                <div class="screenshot-card">
-                    <img src="img3.png" alt="Aperçu Manip-Rx 3">
-                </div>
+        <!-- القسم الثاني: الصورة الأولى منفصلة -->
+        <div class="section-card">
+            <h2>Accueil de l'application</h2>
+            <div class="single-image-container">
+                <img src="1000346643.png" alt="Aperçu 1">
+            </div>
+        </div>
+
+        <!-- القسم الثالث: الصورة الثانية منفصلة -->
+        <div class="section-card">
+            <h2>Les Incidences</h2>
+            <div class="single-image-container">
+                <img src="1000346646.png" alt="Aperçu 2">
+            </div>
+        </div>
+
+        <!-- القسم الرابع: الصورة الثالثة منفصلة -->
+        <div class="section-card">
+            <h2>Les Cours</h2>
+            <div class="single-image-container">
+                <img src="1000346647.png" alt="Aperçu 3">
             </div>
         </div>
 
         <footer>
             <p>&copy; Manip-Rx - Tous droits réservés</p>
         </footer>
+
     </div>
 
 </body>
