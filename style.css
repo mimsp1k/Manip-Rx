@@ -1,58 +1,61 @@
-/* إعادة ضبط الأنماط الأساسية */
+/* إعادة ضبط الأساسيات */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #e0e7ff 0%, #f1f5f9 100%);
+    background-color: #f8fafc;
+    color: #1e293b;
     min-height: 100vh;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
 }
 
-/* بطاقة التطبيق الرئيسية */
-.app-card {
-    background: #ffffff;
+/* الحاوية الرئيسية للتطبيقات المعروضة على الكمبيوتر */
+.main-container {
     width: 100%;
-    max-width: 450px;
-    border-radius: 24px;
-    padding: 28px 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* الهيدر */
-.header {
+/* قسم الهيدر */
+.hero-section {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 32px 24px;
     text-align: center;
-    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 32px;
 }
 
 .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: #e0e7ff;
-    color: #4f46e5;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 6px 14px;
+    color: #4338ca;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
     border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    margin-bottom: 12px;
 }
 
-.header h1 {
-    color: #1e293b;
-    font-size: 1.8rem;
-    margin-top: 10px;
+.hero-section h1 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin-bottom: 8px;
 }
 
-.header p {
+.hero-section p {
     color: #64748b;
-    font-size: 0.88rem;
-    margin-top: 4px;
-    margin-bottom: 18px;
+    font-size: 1rem;
+    margin-bottom: 24px;
 }
 
 /* زر التحميل */
@@ -61,87 +64,119 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+    background: #2563eb;
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
-    padding: 14px 28px;
-    border-radius: 14px;
-    width: 100%;
-    box-shadow: 0 8px 18px rgba(79, 70, 229, 0.3);
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
     transition: all 0.2s ease;
 }
 
 .btn-download:hover {
+    background: #1d4ed8;
     transform: translateY(-2px);
-    box-shadow: 0 12px 22px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* معرض الصور */
-.gallery-section h2 {
-    font-size: 1rem;
-    color: #334155;
-    margin-bottom: 14px;
+/* قسم المعرض */
+.gallery-section {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.section-title {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    color: #0f172a;
 }
 
-.gallery-section h2 i {
-    color: #4f46e5;
+.section-title i {
+    color: #2563eb;
+    font-size: 1.4rem;
 }
 
-/* ترتيب الصور في شبكة مصغرة */
-.grid-container {
+.section-title h2 {
+    font-size: 1.3rem;
+}
+
+/* تنظيم الصور في شبكة منتظمة */
+.cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 24px;
+    justify-items: center;
 }
 
-.card-item {
+/* بطاقة الصورة بنمط إطار الهاتف */
+.app-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-}
-
-.img-box {
     width: 100%;
-    height: 160px; /* حجم مصغر ومنتظم للصور */
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid #e2e8f0;
-    background: #f8fafc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    max-width: 220px;
 }
 
-.img-box img {
+.phone-frame {
+    width: 100%;
+    height: 380px; /* تحديد ارتفاع مناسب وشديد التناسق */
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #cbd5e1;
+    background: #f1f5f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phone-frame:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    border-color: #2563eb;
+}
+
+.phone-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* لضمان ضبط مقاسات الصور بدون تشويه */
-    transition: transform 0.3s ease;
+    object-fit: cover; /* لضمان ضبط مقاسات الصورة دون تمدد غير مريح */
 }
 
-.img-box:hover img {
-    transform: scale(1.08);
-}
-
-.card-item span {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #475569;
+.card-caption {
+    margin-top: 12px;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.card-caption i {
+    color: #2563eb;
 }
 
 footer {
     text-align: center;
-    margin-top: 24px;
-    padding-top: 16px;
-    border-top: 1px solid #f1f5f9;
-    font-size: 0.75rem;
+    margin-top: 32px;
     color: #94a3b8;
+    font-size: 0.85rem;
 }
 
+/* التجاوب مع شاشات الهواتف الصغرى */
+@media (max-width: 640px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .phone-frame {
+        height: 420px;
+        max-width: 260px;
+    }
+}
