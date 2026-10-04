@@ -4,73 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manip-Rx - Application Mobile</title>
+    <!-- ربط ملف الـ CSS الخارجي -->
     <link rel="stylesheet" href="style.css">
     <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="main-container">
+    <div class="app-card">
         
         <!-- الهيدر والزر -->
-        <header class="hero-section">
-            <span class="badge"><i class="fa-brands fa-android"></i> Application Android</span>
+        <header class="header">
+            <span class="badge">Application Android</span>
             <h1>Manip-Rx</h1>
-            <p>Application médicale dédiée aux manipulations et cours d'imagerie</p>
+            <p>Application médicale pour les manipulations et cours</p>
             
-            <a href="ManipRx.apk" class="btn-download" download>
+            <!-- تم تعديل الرابط ليتوافق مع الاسم الجديد -->
+            <a href="Manip-Rx.apk" class="btn-download" download>
                 <i class="fa-solid fa-cloud-arrow-down"></i>
-                <span>Télécharger l'application APK</span>
+                <span>Télécharger APK</span>
             </a>
         </header>
 
-        <!-- معرض الصور المصغرة -->
+        <!-- قسم الصور المصغرة والمرتبة -->
         <section class="gallery-section">
-            <div class="section-title">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <h2>Aperçu de l'application</h2>
-            </div>
+            <h2><i class="fa-solid fa-images"></i> Aperçu de l'application</h2>
             
-            <div class="cards-grid">
+            <div class="grid-container">
                 
-                <!-- البطاقة الأولى -->
-                <div class="app-card">
-                    <div class="phone-frame">
+                <div class="card-item">
+                    <div class="img-box">
                         <img src="https://img.sanishtech.com/u/c34a15752caf96a34da0edad83185429.png" alt="Accueil">
                     </div>
-                    <div class="card-caption">
-                        <i class="fa-solid fa-house"></i>
-                        <span>Page d'accueil</span>
-                    </div>
+                    <span><i class="fa-solid fa-house"></i> Accueil</span>
                 </div>
 
-                <!-- البطاقة الثانية -->
-                <div class="app-card">
-                    <div class="phone-frame">
+                <div class="card-item">
+                    <div class="img-box">
                         <img src="https://img.sanishtech.com/u/c28ad28843ef0f0717f2157e38c5c478.png" alt="Incidences">
                     </div>
-                    <div class="card-caption">
-                        <i class="fa-solid fa-x-ray"></i>
-                        <span>Les Incidences</span>
-                    </div>
+                    <span><i class="fa-solid fa-x-ray"></i> Incidences</span>
                 </div>
 
-                <!-- البطاقة الثالثة -->
-                <div class="app-card">
-                    <div class="phone-frame">
+                <div class="card-item">
+                    <div class="img-box">
                         <img src="https://img.sanishtech.com/u/58d6dc07b4e715eaccb78cd9d549f875.png" alt="Cours">
                     </div>
-                    <div class="card-caption">
-                        <i class="fa-solid fa-book-open"></i>
-                        <span>Les Cours</span>
-                    </div>
+                    <span><i class="fa-solid fa-book-open"></i> Cours</span>
                 </div>
 
             </div>
         </section>
 
         <footer>
-            <p>&copy; Manip-Rx — Tous droits réservés</p>
+            <p>&copy; Manip-Rx - Tous droits réservés</p>
         </footer>
 
     </div>
