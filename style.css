@@ -1,172 +1,147 @@
-:root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --bg-color: #f1f5f9;
-    --card-bg: #ffffff;
-    --text-color: #0f172a;
-    --text-muted: #64748b;
-    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-}
-
+/* إعادة ضبط الأنماط الأساسية */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    padding: 24px 12px;
-}
-
-.container {
-    max-width: 480px;
-    margin: 0 auto;
-}
-
-/* بطاقات التصميم المنفصلة */
-.section-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 24px 20px;
-    box-shadow: var(--shadow);
-    margin-bottom: 24px;
-    text-align: center;
-    border: 1px solid rgba(226, 232, 240, 0.8);
-    transition: transform 0.2s ease;
-}
-
-.hero-card {
-    border-top: 4px solid var(--primary-color);
-}
-
-.badge {
-    display: inline-block;
-    background-color: #e0e7ff;
-    color: #4338ca;
-    font-weight: 600;
-    font-size: 0.8rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-}
-
-.section-card h1 {
-    font-size: 1.75rem;
-    color: var(--text-color);
-    margin-bottom: 8px;
-}
-
-.section-card h2 {
-    font-size: 1.25rem;
-    color: var(--text-color);
-    margin-bottom: 16px;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f1f5f9 100%);
+    min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.section-card h2 i {
-    color: var(--primary-color);
-}
-
-.section-card p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-}
-
-/* زر التحميل المباشر */
-.btn-download {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    font-size: 1.05rem;
-    font-weight: 600;
-    padding: 16px 24px;
-    border-radius: 14px;
-    text-decoration: none;
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-.btn-download:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-}
-
-.download-notice {
-    margin-top: 12px;
-    font-size: 0.85rem;
-    color: #16a34a;
-    font-weight: 500;
-    display: none;
-}
-
-/* حاويات الصور */
-.image-wrapper {
-    width: 100%;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-    background-color: #f8fafc;
-}
-
-.preview-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.preview-img:hover {
-    transform: scale(1.02);
-}
-
-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-}
-
-/* Lightbox Modal (JavaScript) */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
 
-.lightbox-content {
-    max-width: 90%;
-    max-height: 85vh;
-    border-radius: 12px;
+/* بطاقة التطبيق الرئيسية */
+.app-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 24px;
+    padding: 28px 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    color: #ffffff;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
+/* الهيدر */
+.header {
+    text-align: center;
+    margin-bottom: 24px;
 }
+
+.badge {
+    background: #e0e7ff;
+    color: #4f46e5;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.header h1 {
+    color: #1e293b;
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+.header p {
+    color: #64748b;
+    font-size: 0.88rem;
+    margin-top: 4px;
+    margin-bottom: 18px;
+}
+
+/* زر التحميل */
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: 14px;
+    width: 100%;
+    box-shadow: 0 8px 18px rgba(79, 70, 229, 0.3);
+    transition: all 0.2s ease;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(79, 70, 229, 0.4);
+}
+
+/* معرض الصور */
+.gallery-section h2 {
+    font-size: 1rem;
+    color: #334155;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gallery-section h2 i {
+    color: #4f46e5;
+}
+
+/* ترتيب الصور في شبكة مصغرة */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.card-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.img-box {
+    width: 100%;
+    height: 160px; /* حجم مصغر ومنتظم للصور */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+    background: #f8fafc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لضمان ضبط مقاسات الصور بدون تشويه */
+    transition: transform 0.3s ease;
+}
+
+.img-box:hover img {
+    transform: scale(1.08);
+}
+
+.card-item span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
