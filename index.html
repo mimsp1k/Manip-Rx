@@ -1,62 +1,171 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل تطبيق Manip-Rx</title>
+    <title>Manip-Rx - Application Mobile</title>
+    <!-- CSS & Styling -->
     <style>
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: #f4f6f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Hero Header Card */
+        .hero-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 20px;
             text-align: center;
-            max-width: 360px;
-            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
         }
-        h1 {
-            color: #1f2937;
-            font-size: 22px;
+
+        .hero-card h1 {
+            font-size: 2rem;
+            color: var(--text-color);
             margin-bottom: 10px;
         }
-        p {
-            color: #6b7280;
-            font-size: 14px;
+
+        .hero-card p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
             margin-bottom: 25px;
         }
-        .download-btn {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            padding: 14px 28px;
-            border-radius: 10px;
+
+        /* Download Button */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 16px 36px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background 0.2s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.3s ease;
         }
-        .download-btn:hover {
-            background-color: #1d4ed8;
+
+        .btn-download:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+        }
+
+        /* Screenshots Section */
+        .screenshots-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .screenshots-section h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .screenshot-card {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: scale(1.03);
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>تطبيق Manip-Rx</h1>
-        <p>اضغط على الزر أدناه لبدء تحميل ملف الـ APK مباشرة على هاتفك.</p>
-        
-        <!-- تم تعديل الرابط ليكون ManipRx.apk بالضبط ليطابق اسم الملف المرفوع -->
-        <a href="ManipRx.apk" class="download-btn" download>تحميل التطبيق (APK)</a>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-card">
+            <h1>Plateforme Manip-Rx</h1>
+            <p>Pour télécharger l'application, cliquez sur le bouton ci-dessous :</p>
+            
+            <!-- Download Action Button -->
+            <a href="ManipRx.apk" class="btn-download" download>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Télécharger l'application (APK)
+            </a>
+        </div>
+
+        <!-- Screenshots Section -->
+        <div class="screenshots-section">
+            <h2>Aperçu de l'application</h2>
+            <div class="grid">
+                <div class="screenshot-card">
+                    <img src="img1.png" alt="Aperçu Manip-Rx 1">
+                </div>
+                <div class="screenshot-card">
+                    <img src="img2.png" alt="Aperçu Manip-Rx 2">
+                </div>
+                <div class="screenshot-card">
+                    <img src="img3.png" alt="Aperçu Manip-Rx 3">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; Manip-Rx - Tous droits réservés</p>
+        </footer>
     </div>
 
 </body>
