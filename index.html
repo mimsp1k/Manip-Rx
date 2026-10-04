@@ -6,46 +6,47 @@
     <title>Manip-Rx - Application Mobile</title>
     <!-- ربط ملف الـ CSS الخارجي -->
     <link rel="stylesheet" href="style.css">
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <div class="container">
         
-        <!-- القسم الأول: زر التحميل -->
-        <div class="section-card">
+        <!-- قسم التحميل رئيسي -->
+        <div class="section-card hero-card">
+            <div class="badge">Application Android</div>
             <h1>Plateforme Manip-Rx</h1>
             <p>Pour télécharger l'application, cliquez sur le bouton ci-dessous :</p>
-            <a href="ManipRx.apk" class="btn-download" download>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Télécharger l'application (APK)
+            
+            <a href="ManipRx.apk" class="btn-download" id="downloadBtn" download>
+                <i class="fa-solid fa-download"></i>
+                <span>Télécharger l'application (APK)</span>
             </a>
+            <div id="downloadNotice" class="download-notice"></div>
         </div>
 
-        <!-- القسم الثاني: الصورة الأولى منفصلة -->
+        <!-- البطاقة الأولى - صورة الواجهة -->
         <div class="section-card">
-            <h2>Accueil de l'application</h2>
-            <div class="single-image-container">
-                <img src="1000346643.png" alt="Aperçu 1">
+            <h2><i class="fa-solid fa-house-medical"></i> Accueil de l'application</h2>
+            <div class="image-wrapper">
+                <img src="https://img.sanishtech.com/u/c34a15752caf96a34da0edad83185429.png" alt="Accueil Manip-Rx" class="preview-img">
             </div>
         </div>
 
-        <!-- القسم الثالث: الصورة الثانية منفصلة -->
+        <!-- البطاقة الثانية - صورة Incidences -->
         <div class="section-card">
-            <h2>Les Incidences</h2>
-            <div class="single-image-container">
-                <img src="1000346646.png" alt="Aperçu 2">
+            <h2><i class="fa-solid fa-x-ray"></i> Les Incidences</h2>
+            <div class="image-wrapper">
+                <img src="https://img.sanishtech.com/u/c28ad28843ef0f0717f2157e38c5c478.png" alt="Les Incidences" class="preview-img">
             </div>
         </div>
 
-        <!-- القسم الرابع: الصورة الثالثة منفصلة -->
+        <!-- البطاقة الثالثة - صورة Cours -->
         <div class="section-card">
-            <h2>Les Cours</h2>
-            <div class="single-image-container">
-                <img src="1000346647.png" alt="Aperçu 3">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Les Cours</h2>
+            <div class="image-wrapper">
+                <img src="https://img.sanishtech.com/u/58d6dc07b4e715eaccb78cd9d549f875.png" alt="Les Cours" class="preview-img">
             </div>
         </div>
 
@@ -55,5 +56,13 @@
 
     </div>
 
+    <!-- نافذة المكبر عند الضغط على الصورة (Lightbox) -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Agrandissement">
+    </div>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script src="script.js"></script>
 </body>
 </html>
