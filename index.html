@@ -4,39 +4,337 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manip-Rx</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- خط عصري من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* المتغيرات والتصميم العصري المتناسق */
+        :root {
+            --primary-color: #0284c7;
+            --primary-hover: #0369a1;
+            --accent-color: #0d9488;
+            --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --card-bg: #ffffff;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(2, 132, 199, 0.12), 0 8px 10px -6px rgba(2, 132, 199, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .main-container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            border-radius: 28px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+
+        /* شارة التطبيق */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(21, 128, 61, 0.1);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f172a 0%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* زر التحميل الأصلي مع تحسينات التصميم */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin: 15px 0;
+            box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 25px -5px rgba(2, 132, 199, 0.55);
+        }
+
+        /* رسالة التحميل المرتبطة بـ JS */
+        #downloadNotice {
+            display: none;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #15803d;
+            font-weight: 600;
+            background: #f0fdf4;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #bbf7d0;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 35px 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        h2 i {
+            color: var(--primary-color);
+        }
+
+        /* حاوية الصور مع تحكم أفضل بالحجم والتوزيع */
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .photo-item {
+            text-align: center;
+            background: white;
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 170px; /* تحديد عرض متناسق للبطاقة */
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: #bae6fd;
+        }
+
+        /* تحجيم حاوية الصورة لتناسب لقطات الشاشة الطولية للهواتف */
+        .img-wrapper {
+            width: 100%;
+            height: 280px; /* ارتفاع ثابت يمنع التمدد المبالغ فيه ويحافظ على مظهر الشاشة */
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+            border: 2px solid #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .photo-item img.preview-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* لضمان ملء الإطار بشكل جميل دون تشويه المحتوى */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item img.preview-img:hover {
+            transform: scale(1.03);
+        }
+
+        .photo-item p {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            margin-bottom: 0;
+            color: var(--text-dark);
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 4px;
+            border-radius: 6px;
+        }
+
+        /* تصميم الـ Lightbox (عرض الصورة بمقاس كبير عند الضغط عليها) */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #lightboxImg {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 3px solid #ffffff;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: #38bdf8;
+        }
+    </style>
 </head>
 <body>
 
-    <span class="badge">Application Android</span>
-    <h1>Manip-Rx</h1>
-    <p>Application médicale pour les manipulations et cours</p>
+    <div class="main-container">
+        <span class="badge"><i class="fa-brands fa-android"></i> Application Android</span>
+        <h1>Manip-Rx</h1>
+        <p>Application médicale pour les manipulateurs (Incidences, TDM, Cours, Anatomie)</p>
 
-    <!-- رابط التحميل الأصلي الخاص بك -->
-    <a href="ManipRx.apk" class="btn-download" download>
-        <i class="fa-solid fa-cloud-arrow-down"></i> Télécharger APK
-    </a>
-
-    <h2><i class="fa-solid fa-images"></i> Aperçu de l'application</h2>
-
-    <!-- الحاوية المصغرة للصور -->
-    <div class="gallery-container">
-        <div class="photo-item">
-            <img src="https://img.sanishtech.com/u/c34a15752caf96a34da0edad83185429.png" alt="Accueil">
-            <p>Accueil</p>
+        <!-- رابط التحميل الأصلي -->
+        <div>
+            <a href="ManipRx.apk" id="downloadBtn" class="btn-download" download>
+                <i class="fa-solid fa-cloud-arrow-down"></i> Télécharger APK
+            </a>
+            <div id="downloadNotice"></div>
         </div>
 
-        <div class="photo-item">
-            <img src="https://img.sanishtech.com/u/c28ad28843ef0f0717f2157e38c5c478.png" alt="Incidences">
-            <p>Incidences</p>
-        </div>
+        <h2><i class="fa-solid fa-images"></i> Aperçu de l'application</h2>
 
-        <div class="photo-item">
-            <img src="https://img.sanishtech.com/u/58d6dc07b4e715eaccb78cd9d549f875.png" alt="Cours">
-            <p>Cours</p>
+        <!-- الحاوية المصغرة للصور بحجم متناسق ومضبوط -->
+        <div class="gallery-container">
+            <div class="photo-item">
+                <div class="img-wrapper">
+                    <img src="https://i.ibb.co/7djqRGRn/image.png" alt="Accueil" class="preview-img">
+                </div>
+                <p>Accueil</p>
+            </div>
+
+            <div class="photo-item">
+                <div class="img-wrapper">
+                    <img src="https://i.ibb.co/rKcZBvhT/image.png" alt="Incidences" class="preview-img">
+                </div>
+                <p>Incidences</p>
+            </div>
+
+            <div class="photo-item">
+                <div class="img-wrapper">
+                    <img src="https://i.ibb.co/W4xD3bqy/image.png" alt="TDM" class="preview-img">
+                </div>
+                <p>TDM</p>
+            </div>
+
+            <div class="photo-item">
+                <div class="img-wrapper">
+                    <img src="https://i.ibb.co/zhB4JfQd/image.png" alt="Cours & Anatomie" class="preview-img">
+                </div>
+                <p>Cours / Anatomie</p>
+            </div>
         </div>
     </div>
 
+    <!-- نافذة العرض المكبر للصور (Lightbox) -->
+    <div id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" src="" alt="Zoomed Image">
+    </div>
+
+    <!-- كود الجافاسكريبت الأصلي الخاص بك -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. التفاعل عند الضغط على زر التحميل
+            const downloadBtn = document.getElementById('downloadBtn');
+            const downloadNotice = document.getElementById('downloadNotice');
+
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    downloadNotice.textContent = 'Le téléchargement a commencé...';
+                    downloadNotice.style.display = 'block';
+
+                    setTimeout(() => {
+                        downloadNotice.style.display = 'none';
+                    }, 5000);
+                });
+            }
+
+            // 2. تكبير الصور عند الضغط عليها (Lightbox feature)
+            const images = document.querySelectorAll('.preview-img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.querySelector('.lightbox-close');
+
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightbox.style.display = 'flex';
+                    lightboxImg.src = img.src;
+                });
+            });
+
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', () => {
+                    lightbox.style.display = 'none';
+                });
+            }
+
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
